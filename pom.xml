@@ -13,10 +13,16 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Lombok</name>
 	<description>Demo project for Project2</description>
+	
+	
 	<properties>
 		<java.version>11</java.version>
   		<sonar.organization>zgapps</sonar.organization>
  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+ 		
+ 		<!-- java 8 -->
+ 		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>	
 	</properties>
 	<dependencies>
 		<dependency>
