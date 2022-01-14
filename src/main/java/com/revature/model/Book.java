@@ -23,9 +23,9 @@ public class Book {
 	@Id
 	@Column(name = "book_id")
 	private int id;
-	
+
 //	@ManyToMany(mappedBy="books")
 //	@JsonView({JsonViewProfile.Address.class})
-//	private Set<User> owners;
-	
+//	private @NonNull Set<User> owners;
+
 }
