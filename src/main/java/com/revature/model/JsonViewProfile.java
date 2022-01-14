@@ -10,7 +10,4 @@ public class JsonViewProfile {
 
 	}
 
-	public static class Catagories {
-
-	}
 }
