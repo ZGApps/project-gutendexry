@@ -1,10 +1,16 @@
 package com.revature.model;
 
 import java.lang.annotation.Repeatable;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +22,9 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.revature.model.JsonViewProfiles.Book;
+import com.revature.model.JsonViewProfiles.Category;
+
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -62,14 +71,17 @@ public class User {
 	@JoinTable(name = "users_books",
     joinColumns = @JoinColumn(name= "user_id"),
     inverseJoinColumns = @JoinColumn(name = "book_id"))
-    @JsonView(JsonViewProfiles.User.class)
+    @JsonView({JsonViewProfiles.User.class, JsonViewProfiles.Book.class})
 	private Set<Book> book;
 	
 	
-	private Set<Category> category;
 	
-	
-	
+	@ElementCollection(targetClass = Category.class,fetch = FetchType.EAGER)
+	@CollectionTable(name = "user_category", joinColumns = @JoinColumn(name = "user_id"))
+	@Enumerated(EnumType.STRING)
+	@Column(name = "category_name")
+	List<Category> interestedCategories;
+
 	
 	
 	
