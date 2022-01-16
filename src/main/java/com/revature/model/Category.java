@@ -48,6 +48,3 @@ public enum Category {
 // explanation:
 //@ElementCollection - Defines a collection of instances of a basic type or embeddable class. @CollectionTable - pecifies the table that is used for the mapping of collections of basic or embeddable types (name - name of the collection table, joinColumn - The foreign key columns of the collection table).
 //Enumerated - Specifies that a persistent property or field should be persisted as a enumerated type.
-
-
-
