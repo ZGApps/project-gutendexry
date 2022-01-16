@@ -15,5 +15,4 @@ public class LombokApplication {
 		log.info("Running");
 		log.warn("HEY WAITT");
 	}
-
 }

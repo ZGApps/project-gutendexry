@@ -18,6 +18,4 @@ package com.revature.model;
 			
 		}
 		
-
 	}
-
