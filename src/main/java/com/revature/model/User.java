@@ -66,9 +66,6 @@ public class User {
 	private Set<Book> book;
 	
 	
-	private Set<Category> category;
-	
-	
 	
 	
 	
