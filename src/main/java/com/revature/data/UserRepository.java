@@ -33,4 +33,9 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	public List<User> findByCategoryContains(String pattern); 
 	
 	// TODO add customer queries findByBookOrderByLastName
+	
+	
+	// vishal added this:
+	public boolean existsByUsername(String username);
+	
 }
