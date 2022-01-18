@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.LombokApplication;
+import com.revature.data.BookRepository;
 import com.revature.data.UserRepository;
 import com.revature.exception.UserNotFoundException;
 import com.revature.exception.UsernameAlreadyExistsException;
@@ -22,6 +23,9 @@ public class UserService {
 	
 	@Autowired
 	UserRepository userRepo;
+	
+	@Autowired
+	BookRepository bookRepo;
 	
 	@Transactional(readOnly=true)
 	public User getUserByUsername(String username) {
@@ -67,8 +71,13 @@ public class UserService {
 		return returnedUser;
 	}
 	
-	public User addBookToReadingList(User u, Book b) {
-		return null;
+	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	public User addBook(User u, Book b) {
+		if(u.getBooks() != null) {
+			u.getBooks().forEach(a -> bookRepo.save(a));
+		}
+		
+		return userRepo.save(u);
 	}
 }
 
@@ -76,4 +85,3 @@ public class UserService {
 // in class for this i need specifically:
 // Optional<User> findByUsername(String username); 
 //vishal added this:
-//	public boolean existsByUsername(String username);
