@@ -6,13 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LombokApplication {
+public class GutendexryDriver {
 	
-	private static Logger log = LoggerFactory.getLogger(LombokApplication.class);
+	private static Logger log = LoggerFactory.getLogger(GutendexryDriver.class);
 	
 	public static void main(String[] args) {
-		SpringApplication.run(LombokApplication.class, args);
-		log.info("Running");
-		log.warn("HEY WAITT");
+		SpringApplication.run(GutendexryDriver.class, args);
+		//log.info("Running");
+		//log.warn("HEY WAITT");
 	}
 }

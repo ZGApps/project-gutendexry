@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.LombokApplication;
+import com.revature.GutendexryDriver;
 import com.revature.data.BookRepository;
 import com.revature.data.UserRepository;
 import com.revature.exception.UserNotFoundException;
@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service 
 public class UserService {
 	
-	private static Logger log = LoggerFactory.getLogger(LombokApplication.class); 
+	private static Logger log = LoggerFactory.getLogger(UserService.class); 
 	
 	@Autowired
 	UserRepository userRepo;
