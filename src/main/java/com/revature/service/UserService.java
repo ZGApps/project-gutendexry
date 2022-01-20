@@ -62,6 +62,10 @@ public class UserService {
 	// begins a new transaction everytime
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public User add(User u) {
+		
+		if(u.getBooks() != null) {
+			u.getBooks().forEach(a -> bookRepo.save(a));
+		}
 		User returnedUser = userRepo.save(u);
 		if(returnedUser.getId() > 0) {
 			log.info("Successfully returned User with id {}", returnedUser.getId());
@@ -79,7 +83,17 @@ public class UserService {
 		
 		return userRepo.save(u);
 	}
+	
+	@Transactional(propagation=Propagation.REQUIRED)
+	public void remove(String username) {
+		User d_user = getUserByUsername(username);
+		userRepo.deleteById(d_user.getId());
+	}
+	
+	// @putmapping : completely replace an object
+	// @patchmapping : update some property of an object
 }
+
 
 
 // in class for this i need specifically:

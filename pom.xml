@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.revature</groupId>
-	<artifactId>Lombok</artifactId>
+	<artifactId>Gutendexry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Lombok</name>
+	<name>Gutendexry</name>
 	<description>Demo project for Project2</description>
 	
 	
@@ -25,6 +25,20 @@
 		<maven.compiler.target>1.8</maven.compiler.target>	
 	</properties>
 	<dependencies>
+	
+	
+	<!-- JJWT aims to be the easiest to use and understand library for creating and verifying 
+		JSON Web Tokens (JWTs) on the JVM and Android. 
+		Read more here: https://github.com/jwtk/jjwt -->
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- https://dzone.com/articles/cookies-vs-tokens-the-definitive-guide -->
+		
+		
 		<!-- API Documentation Dependency -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -90,6 +104,15 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

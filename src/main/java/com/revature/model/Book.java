@@ -35,7 +35,7 @@ public class Book {
 
 	@ManyToMany(mappedBy="books")
 	@JsonView({JsonViewProfiles.Book.class})
-	private @NonNull Set<User> owners;
+	private Set<User> owners;
 	
 	public Book(int id) {
 		super();
