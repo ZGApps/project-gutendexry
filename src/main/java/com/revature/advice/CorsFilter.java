@@ -1,0 +1,36 @@
+package com.revature.advice;
+
+import java.io.IOException;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+@Component
+@WebFilter("/*") // Our frontend Angular Application will be running on port 4200 and making request to our localhost at port 5000
+// prevents cor issues from other resources.
+public class CorsFilter extends OncePerRequestFilter {
+
+	// for every request hit the server this method will run
+	// similar to servlet
+	@Override
+	protected void doFilterInternal(HttpServletRequest req, HttpServletResponse resp, FilterChain chain)
+			throws ServletException, IOException {
+		
+		// standard core filter
+		// allow applications to send the get head... type of request
+		// append the response sent back with particular headers
+		// opens up communication between front end and back end applicaiton
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE,PATCH");
+        resp.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+        chain.doFilter(req, resp);
+	}
+
+}

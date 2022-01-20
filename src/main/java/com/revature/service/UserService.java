@@ -79,7 +79,17 @@ public class UserService {
 		
 		return userRepo.save(u);
 	}
+	
+	@Transactional(propagation=Propagation.REQUIRED)
+	public void remove(String username) {
+		User d_user = getUserByUsername(username);
+		userRepo.deleteById(d_user.getId());
+	}
+	
+	// @putmapping : completely replace an object
+	// @patchmapping : update some property of an object
 }
+
 
 
 // in class for this i need specifically:
