@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.revature</groupId>
-	<artifactId>Lombok</artifactId>
+	<artifactId>Gutendexry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Lombok</name>
+	<name>Gutendexry</name>
 	<description>Demo project for Project2</description>
 	
 	

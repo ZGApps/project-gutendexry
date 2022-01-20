@@ -62,6 +62,10 @@ public class UserService {
 	// begins a new transaction everytime
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public User add(User u) {
+		
+		if(u.getBooks() != null) {
+			u.getBooks().forEach(a -> bookRepo.save(a));
+		}
 		User returnedUser = userRepo.save(u);
 		if(returnedUser.getId() > 0) {
 			log.info("Successfully returned User with id {}", returnedUser.getId());
