@@ -1,6 +1,5 @@
 package com.revature.model;
 
-import java.lang.annotation.Repeatable;
 import java.util.List;
 import java.util.Set;
 
@@ -22,8 +21,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.revature.model.JsonViewProfiles.Book;
-import com.revature.model.JsonViewProfiles.Category;
 
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Pattern;
@@ -31,14 +28,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name="users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@RequiredArgsConstructor
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class User {
 
@@ -71,8 +66,8 @@ public class User {
 	@JoinTable(name = "users_books",
     joinColumns = @JoinColumn(name= "user_id"),
     inverseJoinColumns = @JoinColumn(name = "book_id"))
-    @JsonView({JsonViewProfiles.User.class, JsonViewProfiles.Book.class})
-	private Set<Book> book;
+    @JsonView({JsonViewProfiles.User.class})
+	private Set<Book> books;
 	
 	
 	
@@ -80,9 +75,19 @@ public class User {
 	@CollectionTable(name = "user_category", joinColumns = @JoinColumn(name = "user_id"))
 	@Enumerated(EnumType.STRING)
 	@Column(name = "category_name")
-	List<Category> interestedCategories;
+    @JsonView({JsonViewProfiles.User.class})
+	private List<Category> interestedCategories;
 
-	
+	public User(@NonNull @Length(min=2) String firstName,
+			@NonNull @Length(min=2) String lastName,
+			@NonNull @Length(min=3)	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
+			@NonNull @Length(min=5) String password) {
+		super();
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+	}
 	
 	
 	

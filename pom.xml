@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.2</version>
+		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.revature</groupId>
-	<artifactId>Lombok</artifactId>
+	<artifactId>Gutendexry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Lombok</name>
+	<name>Gutendexry</name>
 	<description>Demo project for Project2</description>
 	
 	
@@ -25,6 +25,35 @@
 		<maven.compiler.target>1.8</maven.compiler.target>	
 	</properties>
 	<dependencies>
+	
+	
+	<!-- JJWT aims to be the easiest to use and understand library for creating and verifying 
+		JSON Web Tokens (JWTs) on the JVM and Android. 
+		Read more here: https://github.com/jwtk/jjwt -->
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- https://dzone.com/articles/cookies-vs-tokens-the-definitive-guide -->
+		
+		
+		<!-- API Documentation Dependency -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- this is because we are going to read the configuration for the above springfox dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+	
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -44,11 +73,13 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<!--  
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -65,6 +96,24 @@
     <groupId>org.springframework.boot</groupId> 
     <artifactId>spring-boot-starter-validation</artifactId> 
 </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -75,5 +124,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
