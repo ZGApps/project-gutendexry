@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,6 +28,7 @@ import com.revature.util.JwtUtil;
  * logged in or not.
  */
 @Component
+@WebFilter("/*")
 public class JwtFilter extends OncePerRequestFilter {
 
 	@Autowired
@@ -77,8 +79,13 @@ public class JwtFilter extends OncePerRequestFilter {
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 			}
 		}
-
-		// continue on with program execution (after having intercepted an incoming request to the server)
+		
+		httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+		httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
+		httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE,PATCH");
+		httpServletResponse.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		
 		filterChain.doFilter(httpServletRequest, httpServletResponse);
+		
 	}
 }
