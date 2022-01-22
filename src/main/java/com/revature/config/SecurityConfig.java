@@ -1,5 +1,7 @@
 package com.revature.config;
 
+import javax.servlet.annotation.WebFilter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +33,7 @@ import com.revature.service.CustomUserDetailsService;
  */
 @Configuration
 @EnableWebSecurity
+@WebFilter("/*")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -74,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http.cors(); // The cors() method will add the Spring-provided CorsFilter to 
+    	http.headers();
         http.csrf()  // the application context which in turn bypasses the authorization
         .disable()   // checks for OPTIONS requests.
         .authorizeRequests()
