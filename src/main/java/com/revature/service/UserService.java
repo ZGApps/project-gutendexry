@@ -85,9 +85,10 @@ public class UserService {
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRED)
-	public void remove(String username) {
+	public User remove(String username) {
 		User d_user = getUserByUsername(username);
 		userRepo.deleteById(d_user.getId());
+		return d_user;
 	}
 	
 	// @putmapping : completely replace an object
