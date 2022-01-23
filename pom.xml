@@ -38,7 +38,12 @@
 		</dependency>
 		<!-- https://dzone.com/articles/cookies-vs-tokens-the-definitive-guide -->
 		
-		
+		<dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version><!--$NO-MVN-MAN-VER$-->
+            <scope>test</scope>
+        </dependency>
 		<!-- API Documentation Dependency -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -115,6 +120,13 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	
+	<dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter-engine</artifactId>
+             <scope>test</scope>
+         </dependency>
+	
 	</dependencies>
 
 	<build>
