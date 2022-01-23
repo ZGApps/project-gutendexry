@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -71,13 +73,19 @@ public class User {
 	
 	
 	
-	@ElementCollection(targetClass = Category.class,fetch = FetchType.EAGER)
-	@CollectionTable(name = "user_category", joinColumns = @JoinColumn(name = "user_id"))
-	@Enumerated(EnumType.STRING)
-	@Column(name = "category_name")
-    @JsonView({JsonViewProfiles.User.class})
-	private List<Category> interestedCategories;
-
+	/*
+	 * @ElementCollection(targetClass = Category.class,fetch = FetchType.EAGER)
+	 * 
+	 * @CollectionTable(name = "user_category", joinColumns = @JoinColumn(name =
+	 * "user_id"))
+	 * 
+	 * @Enumerated(EnumType.STRING)
+	 * 
+	 * @Column(name = "category_name")
+	 * 
+	 * @JsonView({JsonViewProfiles.User.class}) private List<Category>
+	 * interestedCategories;
+	 */
 	public User(@NonNull @Length(min=2) String firstName,
 			@NonNull @Length(min=2) String lastName,
 			@NonNull @Length(min=3)	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
@@ -89,6 +97,31 @@ public class User {
 		this.password = password;
 	}
 	
+	public User(int id, @NonNull @Length(min=2) String firstName,
+			@NonNull @Length(min=2) String lastName,
+			@NonNull @Length(min=3)	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
+			@NonNull @Length(min=5) String password,@NonNull Book[] books) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.books = new HashSet<>(Arrays.asList(books));
+	}
 	
+	public User removeBook(Book book) {
+		Set<Book> books = this.getBooks();
+		if(books.contains(book)) {
+			books.remove(book);
+		}
+		this.setBooks(books);
+		return this;
+	}
+	
+	public User addBook(Book book) {
+		books.add(book);
+		return this;
+	}
 	
 }
