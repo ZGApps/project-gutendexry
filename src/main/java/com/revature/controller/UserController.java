@@ -54,6 +54,20 @@ public class UserController {
 		return ResponseEntity.ok(userServ.add(u)); 
 	}
 	
+	//Copied the /add method, modified slightly to do the addBook method
+	//POST - addBook()
+	@PostMapping("/addbook")
+	public ResponseEntity<User> addBook(@Valid @RequestBody User u) { // valid annotation ensures that we can only accept a VALID user object
+		// will return the User object with up to date reading list in JSON
+		return ResponseEntity.ok(userServ.addBook(u)); 
+	}
+	
+	@PostMapping("/removebook")
+	public ResponseEntity<User> removeBook(@Valid @RequestBody User u) { // valid annotation ensures that we can only accept a VALID user object
+		// will return the User object with up to date reading list in JSON
+		return ResponseEntity.ok(userServ.removeBook(u)); 
+	}
+	
 	/*
 	// GET - getById() - extract the id from the URI like in findByUsername();
 	@GetMapping("/{id}")

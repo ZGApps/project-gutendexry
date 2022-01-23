@@ -76,18 +76,30 @@ public class UserService {
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
-	public User addBook(User u, Book b) {
+	public User addBook(User u) {
+		User a_user = getUserByUsername(u.getUsername());
+		
 		if(u.getBooks() != null) {
+			u.getBooks().forEach(b -> a_user.addBook(b));
 			u.getBooks().forEach(a -> bookRepo.save(a));
 		}
-		
-		return userRepo.save(u);
+		return userRepo.save(a_user);
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void remove(String username) {
 		User d_user = getUserByUsername(username);
 		userRepo.deleteById(d_user.getId());
+	}
+	
+	@Transactional(propagation=Propagation.REQUIRED)
+	public User removeBook(User u) {
+		User r_user =  getUserByUsername(u.getUsername());
+		if(u.getBooks() != null) {
+		u.getBooks().forEach(b -> r_user.removeBook(b));
+		}
+		return userRepo.save(r_user);
+
 	}
 	
 	// @putmapping : completely replace an object
