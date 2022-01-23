@@ -73,13 +73,19 @@ public class User {
 	
 	
 	
-	@ElementCollection(targetClass = Category.class,fetch = FetchType.EAGER)
-	@CollectionTable(name = "user_category", joinColumns = @JoinColumn(name = "user_id"))
-	@Enumerated(EnumType.STRING)
-	@Column(name = "category_name")
-    @JsonView({JsonViewProfiles.User.class})
-	private List<Category> interestedCategories;
-
+	/*
+	 * @ElementCollection(targetClass = Category.class,fetch = FetchType.EAGER)
+	 * 
+	 * @CollectionTable(name = "user_category", joinColumns = @JoinColumn(name =
+	 * "user_id"))
+	 * 
+	 * @Enumerated(EnumType.STRING)
+	 * 
+	 * @Column(name = "category_name")
+	 * 
+	 * @JsonView({JsonViewProfiles.User.class}) private List<Category>
+	 * interestedCategories;
+	 */
 	public User(@NonNull @Length(min=2) String firstName,
 			@NonNull @Length(min=2) String lastName,
 			@NonNull @Length(min=3)	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
