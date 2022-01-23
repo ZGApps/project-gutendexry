@@ -51,4 +51,4 @@ buildNumber.properties
 **/logs/*
 .vscode
 .metadata/
-application.properties
+
