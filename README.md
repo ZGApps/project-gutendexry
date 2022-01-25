@@ -4,9 +4,9 @@
 Gutendexry is a spring boot based application that follows an Agile approach to the SDLC to ensure a high quality product is delivered quickly. It uses the Gutendex API to allow registered users to search for books on project Gutenberg Users can request recommendations based on categories, and also create and manage a reading list unique to their own account.
 
 ## Contributors
---- [Zak](https://github.com/ZGApps)
--- [Jahred Elijah](https://github.com/JahredElijah)
--- [Vishal Athar](https://github.com/vishalathar)
+* [Zak](https://github.com/ZGApps)
+* [Jahred Elijah](https://github.com/JahredElijah)
+* [Vishal Athar](https://github.com/vishalathar)
 
 ## Technologies Used
 
