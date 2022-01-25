@@ -41,9 +41,6 @@ To-do list: [`for future iterations`]
 * If a book already exists in reading list, doesn't show up in recommendation
 * Sign up input validations
 
-## Getting Started  
-
-
 ## License
 
 This project uses the following license: [GNU Public License 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
