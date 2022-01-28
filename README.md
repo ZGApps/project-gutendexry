@@ -1,41 +1,31 @@
-# project-gutendexry
+# ProjectGutendexry
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
 ## Project Description
-Gutendexry is a spring boot based application that follows SDLC approach through Agile Methodology, ensuring high quality product. It uses the Gutendex API to allow registered users to search for books on project Gutenberg, and also request recommendations based on categories. Users can create and manage a reading list.
- 
+Project-Gutendexry-Angular is Angular based front-end Single Page Application for [Gutendexry](https://github.com/ZGApps/project-gutendexry) (spring boot based application that follows an Agile approach to the SDLC to ensure a high quality product is delivered quickly). It uses the Gutendex API to allow registered users to search for books on project Gutenberg Users can request recommendations based on categories, and also create and manage a reading list unique to their own account.
 
-## Technologies Used
 
-* Spring Boot (With Spring Data and Spring Web)
-* Angular
-* Gutendex API https://gutendex.com
-* AWS Cloud Resources for Deployment:
-  - PostgreSQL RDS
-  - Spring Boot Backend deployed on EC2
-  - Angular Frontend deployed on S3 bucket
-* GitHub (Each team must maintain a repository to which all members contribute)
-* JUnit Tests
-* Log4j
-* Sonar Cloud - Code Health Assessment Tool
-* Trello - Visual Task Team Management Tool
+## Contributors
+* [Zak](https://github.com/ZGApps)
+* [Jahred Elijah](https://github.com/JahredElijah)
+* [Vishal Athar](https://github.com/vishalathar)
 
 ## Features
 
 List of features ready and TODOs for future development  
 
-* Register.
-* Login/Logout.
+Users can:
+* Register
+* Login
+* Logout
 * Search Books on Project Gutenberg
 * Recommend Books
-* Potentially create and manage reading lists.
-* Sort reading lists.
-
+* Create and Manage Reading Lists
 
 To-do list: [`for future iterations`]
-* Demo text
-* etc
-
-## Getting Started  
+* Sort reading lists
+* If a book already exists in reading list, doesn't show up in recommendation
+* Sign up input validations
 
 
 ## License
