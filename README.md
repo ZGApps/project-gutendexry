@@ -1,14 +1,15 @@
 # ProjectGutendexry
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
+This project was generated with SpringBoot.
 
 ## Project Description
-Project-Gutendexry-Angular is Angular based front-end Single Page Application for [Gutendexry](https://github.com/ZGApps/project-gutendexry) (spring boot based application that follows an Agile approach to the SDLC to ensure a high quality product is delivered quickly). It uses the Gutendex API to allow registered users to search for books on project Gutenberg Users can request recommendations based on categories, and also create and manage a reading list unique to their own account.
+Project-Gutendexry SpringBoot based back-end Single Page Application for [Gutendexry-Angular](https://github.com/vishalathar/project-gutendexry-angular) (Angular based application that follows an Agile approach to the SDLC to ensure a high quality product is delivered quickly). It creates and manages a user database and account system that enables users to create and manage a reading list unique to their own account.
 
 
 ## Contributors
-* [Zak](https://github.com/ZGApps)
-* [Jahred Elijah](https://github.com/JahredElijah)
 * [Vishal Athar](https://github.com/vishalathar)
+* [Zak Appleton](https://github.com/ZGApps)
+* [Jahred Elijah](https://github.com/JahredElijah)
+
 
 ## Features
 
